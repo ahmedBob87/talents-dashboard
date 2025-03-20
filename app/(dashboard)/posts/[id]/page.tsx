@@ -1,8 +1,10 @@
 import PostDetailPage from "@/screens/post/post-details-screen";
 import React from "react";
 
-function PostPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+type Params = Promise<{ id: string }>;
+
+async function PostPage({ params }: { params: Params }) {
+  const { id } = await params;
   return <PostDetailPage id={id} />;
 }
 

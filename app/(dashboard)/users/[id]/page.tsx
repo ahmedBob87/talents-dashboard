@@ -1,7 +1,10 @@
 import SingleUserScreen from "@/screens/single-user/single-user-screen";
 
-function SingleUserPage({ params }: { params: { id: string } }) {
-  return <SingleUserScreen id={params.id} />;
+type Params = Promise<{ id: string }>;
+
+async function SingleUserPage({ params }: { params: Params }) {
+  const { id } = await params;
+  return <SingleUserScreen id={id} />;
 }
 
 export default SingleUserPage;
